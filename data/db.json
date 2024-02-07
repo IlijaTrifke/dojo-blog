@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "welcome to the new blog",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipdfolor sit ametdgw, sed diam nonumyfvrgravitydwfg, sed diam nonumy",
+      "tags": ["webdev", "coding", "news"]
+    },
+    {
+      "id": 2,
+      "title": "tops 5 CSS tips",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipdfolor sit ametdgw, sed diam nonumyfvrgravitydwfg, sed diam nonumy",
+      "tags": ["css", "webdev", "coding"]
+    }
+  ]
+}

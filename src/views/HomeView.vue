@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home</h1>
+    <div v-if="error">{{ error }}</div>
+    <!-- v-if="showPosts"  -->
+    <PostList v-if="posts.length" :posts="posts" />
+    <div v-else>Loading...</div>
+    <!-- <button @click="showPosts = !showPosts">toggle posts</button>
+    <button @click="posts.pop()">delete a post</button> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import PostList from "@/components/PostList.vue";
+import getPosts from "../composables/getPosts";
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeView",
+  setup() {
+    // const showPosts = ref(true);
+    const { posts, error, load } = getPosts(); //imamo reference posts i error, tako da mu dodje isto samo smo olaksali sebi kod
+    load();
+    return {
+      posts,
+      //  showPosts
+      error,
+    };
+  },
+  components: { PostList },
+};
 </script>
