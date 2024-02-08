@@ -4,7 +4,9 @@
     <div v-if="error">{{ error }}</div>
     <!-- v-if="showPosts"  -->
     <PostList v-if="posts.length" :posts="posts" />
-    <div v-else>Loading...</div>
+    <div v-else>
+      <Spinner />
+    </div>
     <!-- <button @click="showPosts = !showPosts">toggle posts</button>
     <button @click="posts.pop()">delete a post</button> -->
   </div>
@@ -13,6 +15,7 @@
 <script>
 import PostList from "@/components/PostList.vue";
 import getPosts from "../composables/getPosts";
+import Spinner from "@/components/Spinner.vue";
 
 export default {
   name: "HomeView",
@@ -26,6 +29,14 @@ export default {
       error,
     };
   },
-  components: { PostList },
+  components: { PostList, Spinner },
 };
 </script>
+
+<style>
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+</style>
