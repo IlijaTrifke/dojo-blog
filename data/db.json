@@ -4,19 +4,30 @@
       "id": "1",
       "title": "welcome to the new blog",
       "body": "Lorem ipsum dolor sit amet, consectetur adipdfolor sit ametdgw, sed diam nonumyfvrgravitydwfg, sed diam nonumy",
-      "tags": ["webdev", "coding", "news"]
+      "tags": [
+        "webdev",
+        "coding",
+        "news"
+      ]
     },
     {
       "id": "2",
       "title": "tops 5 CSS tips",
       "body": "Lorem ipsum dolor sit amet, consectetur adipdfolor sit ametdgw, sed diam nonumyfvrgravitydwfg, sed diam nonumy",
-      "tags": ["css", "webdev", "coding"]
+      "tags": [
+        "css",
+        "webdev",
+        "coding"
+      ]
     },
     {
       "id": "e38c",
       "title": "My routine",
       "body": "Daily tasks i need to fullfil",
-      "tags": ["learn", "train"]
+      "tags": [
+        "learn",
+        "train"
+      ]
     }
   ]
 }

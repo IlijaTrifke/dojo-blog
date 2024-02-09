@@ -18,6 +18,7 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -25,6 +26,11 @@ export default {
     const body = ref("");
     const tag = ref("");
     const tags = ref([]);
+
+    const router = useRouter();
+    console.log(router);
+    // router.go(1);
+    // router.go(-1);
 
     const handleKeydown = () => {
       if (!tags.value.includes(tag.value)) {
@@ -44,6 +50,8 @@ export default {
           tags: tags.value,
         }),
       }).catch((error) => console.log(error.message));
+
+      router.push({ name: "home" }); //or '/src/views/HomeView.vue'
     };
 
     const removeTag = (tag) => {

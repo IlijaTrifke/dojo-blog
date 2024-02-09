@@ -3,6 +3,7 @@
   <div v-if="post" class="post">
     <h3>{{ post.title }}</h3>
     <p class="pre">{{ post.body }}</p>
+    <button @click="handleClick" class="delete">Delete post</button>
   </div>
   <div v-else>
     <Spinner />
@@ -12,13 +13,27 @@
 <script>
 import Spinner from "@/components/Spinner.vue";
 import getPost from "../composables/getPost";
+import { useRoute, useRouter } from "vue-router";
 
 export default {
   props: ["id"],
   setup(props) {
-    const { post, error, load } = getPost(props.id);
+    const route = useRoute();
+    const router = useRouter();
+    const uri = "http://localhost:3000/posts/" + props.id;
+
+    const { post, error, load } = getPost(route.params.id); //ili prosto props.id
     load();
-    return { post, error };
+
+    const handleClick = async () => {
+      await fetch(uri, {
+        method: "DELETE",
+      }).catch((error) => console.log(error.message));
+
+      router.push({ name: "home" });
+    };
+
+    return { post, error, handleClick };
   },
   components: { Spinner },
 };
@@ -36,5 +51,8 @@ export default {
 }
 .pre {
   white-space: pre-wrap;
+}
+button.delete {
+  margin: 10px auto;
 }
 </style>
